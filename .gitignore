@@ -2,8 +2,3 @@
 .Rhistory
 .RData
 .Ruserdata
-
-# Results
-/Results/*.csv
-/Results/*.zip
-/Results/*.txt

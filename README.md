@@ -22,7 +22,7 @@ It is part of the onboarding process for [HERON UK](https://heron-uk.github.io/h
 
 2.  **Open the R Project**
 
-    -   Navigate to the `HERON-UK-ConceptCounts` folder and open the project file `HERON-UK-ConceptCounts.Rproj` in RStudio.
+    -   Navigate to the `ConceptCounts` folder and open the project file `ConceptCounts.Rproj` in RStudio.
     -   You should see the project name in the top-right corner of your RStudio session.
 
 3.  **Run the Analysis Code**
