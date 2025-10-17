@@ -6,6 +6,12 @@ log_file <- file.path(outputFolder, paste0("/log_", cdmName, "_", format(Sys.tim
 
 omopgenerics::createLogFile(logFile = log_file)
 
+result <- list()
+
+omopgenerics::logMessage("Getting snapshot")
+
+result[["snapshot"]] <- OmopSketch::summariseOmopSnapshot(cdm = cdm)
+
 omopgenerics::logMessage("Starting concept counts")
 
 tableName <- c("observation_period", "visit_occurrence", "condition_occurrence", "drug_exposure", "procedure_occurrence",
@@ -15,7 +21,7 @@ ageGroup <- list(c(0,19), c(20, 39),c(40, 59), c(60, 79), c(80, Inf) )
 interval <- "years"
 dateRange <- as.Date(c("2012-01-01", NA))
 
-result <- OmopSketch::summariseConceptIdCounts(cdm = cdm,
+result[["conceptCounts"]] <- OmopSketch::summariseConceptIdCounts(cdm = cdm,
                                                omopTableName = tableName,
                                                countBy = "record",
                                                interval = interval,
@@ -37,7 +43,7 @@ omopgenerics::logMessage("Database connection closed")
 # Zip the results
 omopgenerics::logMessage("Export and zip results")
 
-omopgenerics::exportSummarisedResult(result,
+omopgenerics::exportSummarisedResult(result |> omopgenerics::bind(),
                                      minCellCount = minCellCount,
                                      fileName = "result_concept_counts_{cdm_name}.csv",
                                      path = outputFolder)
