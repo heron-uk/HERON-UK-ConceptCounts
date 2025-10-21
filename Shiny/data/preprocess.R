@@ -1,58 +1,19 @@
-# shiny is prepared to work with this resultList, please do not change them
+# shiny is prepared to work with this resultList:
 resultList <- list(
-  "summarise_omop_snapshot" ,
-  "summarise_concept_id_counts"
+  summarise_omop_snapshot = list(result_type = "summarise_omop_snapshot"),
+  summarise_concept_id_counts = list(result_type = "summarise_concept_id_counts")
 )
 
 source(file.path(getwd(), "functions.R"))
 
-data_path <- file.path(getwd(), "data")
-csv_files <- list.files(data_path, pattern = "\\.csv$", full.names = TRUE)
-
-result <- purrr::map(csv_files, \(x){
-  d <- utils::read.csv(x) |> omopgenerics::newSummarisedResult()
-  d |>
-    omopgenerics::filterSettings(.data$result_type %in% c("summarise_omop_snapshot", "summarise_concept_id_counts"))
-}) |> 
-  omopgenerics::bind()
-
-
-
-
-resultList <- resultList |>
-  purrr::map(\(x) {
-    omopgenerics::settings(result) |>
-      dplyr::filter(.data$result_type %in% .env$x) |>
-      dplyr::pull(.data$result_id) }) |>
-  rlang::set_names(resultList)
-
+result <- omopgenerics::importSummarisedResult(file.path(getwd(), "data"))
 data <- prepareResult(result, resultList)
+values <- getValues(result, resultList)
 
-filterValues <- defaultFilterValues(result, resultList)
+# edit choices and values of interest
+choices <- values
+selected <- getSelected(values)
 
-filterValues$summarise_concept_id_counts_variable_name <- NULL
+save(data, choices, selected, values, file = file.path(getwd(), "data", "shinyData.RData"))
 
-rm(result)
-
-data$summarise_concept_id_counts <- data$summarise_concept_id_counts |>
-  omopgenerics::tidy() |>
-  dplyr::select(!c("study_period_end", "study_period_start")) |>
-  dplyr::filter(!is.na(.data$count_records)) |> 
-  dplyr::mutate(
-    interval = dplyr::if_else(
-      .data$year == "overall" & .data$time_interval == "overall",
-      "overall",
-      dplyr::if_else(
-        .data$year != "overall",
-        .data$year,
-        substr(.data$time_interval, 1, 4)
-      )
-    )
-  ) |> dplyr::select(!c("time_interval", "year"))
-
-filterValues$summarise_concept_id_counts_grouping_interval <- unique(data$summarise_concept_id_counts$interval)
-
-
-save(data, filterValues, file = file.path(getwd(), "data", "shinyData.RData"))
-
-rm(filterValues, resultList, data)
+rm(result, values, choices, selected, resultList, data)
