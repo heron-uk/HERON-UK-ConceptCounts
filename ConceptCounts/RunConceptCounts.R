@@ -12,22 +12,24 @@ omopgenerics::logMessage("Getting snapshot")
 
 result[["snapshot"]] <- OmopSketch::summariseOmopSnapshot(cdm = cdm)
 
-omopgenerics::logMessage("Starting concept counts")
+tableName <- intersect(c("visit_occurrence","visit_detail", "condition_occurrence", "drug_exposure", "procedure_occurrence",
+               "device_exposure", "measurement" , "observation", "death"), names(cdm))
 
-tableName <- c("observation_period", "visit_occurrence","visit_detail", "condition_occurrence", "drug_exposure", "procedure_occurrence",
-               "device_exposure", "measurement" , "observation", "death")
-sex <- TRUE
+omopgenerics::logMessage(paste0("Starting concept counts in ", tableName))
+
+sex <- FALSE
 ageGroup <- list(c(0, 17), c(18, 65), c(66, Inf) )
 interval <- "years"
 dateRange <- as.Date(c("2012-01-01", NA))
 
 result[["conceptCounts"]] <- OmopSketch::summariseConceptIdCounts(cdm = cdm,
                                                omopTableName = tableName,
-                                               countBy = "record",
+                                               countBy = c("record", "person"),
                                                interval = interval,
                                                sex = sex,
                                                ageGroup = ageGroup,
                                                dateRange = dateRange,
+                                               inObservation = TRUE,
                                                sample = NULL)
 
 # Calculate duration and log
