@@ -59,7 +59,7 @@ x <- atcCodes |>
   mutate(atc1 = str_to_sentence(atc1), concept_name = str_to_sentence(concept_name)) |>
   group_by(atc1, concept_code, concept_name) |>
   summarise(counts = sum(counts), .groups = "drop") |>
-  mutate(id = row_number(), counts = log(counts), counts = counts / max(counts) + 0.1)
+  mutate(id = row_number(), counts = counts / max(counts) + 0.1)
 
 x <- x |>
   mutate(
