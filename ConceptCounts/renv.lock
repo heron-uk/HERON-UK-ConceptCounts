@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.5.1",
+    "Version": "4.5.2",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -76,7 +76,7 @@
       "NeedsCompilation": "no",
       "Author": "Adam Black [aut, cre] (ORCID: <https://orcid.org/0000-0001-5576-8701>), Artem Gorbachev [aut], Edward Burn [aut], Marti Catala Sabate [aut], Ioanna Nika [aut]",
       "Maintainer": "Adam Black <black@ohdsi.org>",
-      "Repository": "RSPM"
+      "Repository": "https://packagemanager.posit.co/cran/latest"
     },
     "CohortConstructor": {
       "Package": "CohortConstructor",
@@ -233,7 +233,6 @@
         "devtools",
         "usethis"
       ],
-      "Remotes": "OHDSI/OmopViewer",
       "Config/testthat/edition": "3",
       "Config/testthat/parallel": "true",
       "Imports": [
@@ -259,14 +258,14 @@
       "URL": "https://OHDSI.github.io/OmopSketch/",
       "BugReports": "https://github.com/OHDSI/OmopSketch/issues",
       "VignetteBuilder": "knitr",
+      "Author": "Marta Alcalde-Herraiz [aut] (ORCID: <https://orcid.org/0009-0002-4405-1814>), Kim Lopez-Guell [aut] (ORCID: <https://orcid.org/0000-0002-8462-8668>), Elin Rowlands [aut] (ORCID: <https://orcid.org/0009-0005-5166-0417>), Cecilia Campanile [aut, cre] (ORCID: <https://orcid.org/0009-0007-6629-4661>), Edward Burn [aut] (ORCID: <https://orcid.org/0000-0002-9286-1128>), Martí Català [aut] (ORCID: <https://orcid.org/0000-0003-3308-9905>)",
       "RemoteType": "github",
+      "Remotes": "OHDSI/OmopViewer",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "OmopSketch",
       "RemoteUsername": "OHDSI",
       "RemoteRef": "HEAD",
-      "RemoteSha": "32699b0c82eb93062387ff8e9ab2871a1c12e717",
-      "NeedsCompilation": "no",
-      "Author": "Marta Alcalde-Herraiz [aut] (ORCID: <https://orcid.org/0009-0002-4405-1814>), Kim Lopez-Guell [aut] (ORCID: <https://orcid.org/0000-0002-8462-8668>), Elin Rowlands [aut] (ORCID: <https://orcid.org/0009-0005-5166-0417>), Cecilia Campanile [aut, cre] (ORCID: <https://orcid.org/0009-0007-6629-4661>), Edward Burn [aut] (ORCID: <https://orcid.org/0000-0002-9286-1128>), Martí Català [aut] (ORCID: <https://orcid.org/0000-0003-3308-9905>)"
+      "RemoteSha": "32699b0c82eb93062387ff8e9ab2871a1c12e717"
     },
     "PatientProfiles": {
       "Package": "PatientProfiles",
@@ -329,7 +328,7 @@
       "VignetteBuilder": "knitr",
       "NeedsCompilation": "no",
       "Author": "Martí Català [aut, cre] (ORCID: <https://orcid.org/0000-0003-3308-9905>), Yuchen Guo [aut] (ORCID: <https://orcid.org/0000-0002-0847-4855>), Mike Du [aut] (ORCID: <https://orcid.org/0000-0002-9517-8834>), Kim Lopez-Guell [aut] (ORCID: <https://orcid.org/0000-0002-8462-8668>), Edward Burn [aut] (ORCID: <https://orcid.org/0000-0002-9286-1128>), Nuria Mercade-Besora [aut] (ORCID: <https://orcid.org/0009-0006-7948-3747>), Xintong Li [ctb] (ORCID: <https://orcid.org/0000-0002-6872-5804>), Xihang Chen [ctb] (ORCID: <https://orcid.org/0009-0001-8112-8959>)",
-      "Repository": "CRAN"
+      "Repository": "https://packagemanager.posit.co/cran/latest"
     },
     "R6": {
       "Package": "R6",
@@ -954,7 +953,7 @@
       "NeedsCompilation": "no",
       "Author": "Kirill Müller [aut, cre] (ORCID: <https://orcid.org/0000-0002-1416-3412>), Jennifer Bryan [ctb] (ORCID: <https://orcid.org/0000-0002-6983-2759>)",
       "Maintainer": "Kirill Müller <kirill@cynkra.com>",
-      "Repository": "CRAN"
+      "Repository": "https://packagemanager.posit.co/cran/latest"
     },
     "hms": {
       "Package": "hms",
@@ -988,7 +987,7 @@
       "NeedsCompilation": "no",
       "Author": "Kirill Müller [aut, cre] (ORCID: <https://orcid.org/0000-0002-1416-3412>), R Consortium [fnd], Posit Software, PBC [fnd] (ROR: <https://ror.org/03wc8by49>)",
       "Maintainer": "Kirill Müller <kirill@cynkra.com>",
-      "Repository": "CRAN"
+      "Repository": "https://packagemanager.posit.co/cran/latest"
     },
     "jsonlite": {
       "Package": "jsonlite",
@@ -1090,7 +1089,7 @@
       "NeedsCompilation": "yes",
       "Author": "Stefan Milton Bache [aut, cph] (Original author and creator of magrittr), Hadley Wickham [aut], Lionel Henry [cre], Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>)",
       "Maintainer": "Lionel Henry <lionel@posit.co>",
-      "Repository": "CRAN"
+      "Repository": "https://packagemanager.posit.co/cran/latest"
     },
     "omopgenerics": {
       "Package": "omopgenerics",
@@ -1144,7 +1143,7 @@
       "NeedsCompilation": "no",
       "Author": "Martí Català [aut, cre] (ORCID: <https://orcid.org/0000-0003-3308-9905>), Edward Burn [aut] (ORCID: <https://orcid.org/0000-0002-9286-1128>), Mike Du [ctb] (ORCID: <https://orcid.org/0000-0002-9517-8834>), Yuchen Guo [ctb] (ORCID: <https://orcid.org/0000-0002-0847-4855>), Adam Black [ctb] (ORCID: <https://orcid.org/0000-0001-5576-8701>), Marta Alcalde-Herraiz [ctb] (ORCID: <https://orcid.org/0009-0002-4405-1814>)",
       "Maintainer": "Martí Català <marti.catalasabate@ndorms.ox.ac.uk>",
-      "Repository": "CRAN"
+      "Repository": "https://packagemanager.posit.co/cran/latest"
     },
     "pillar": {
       "Package": "pillar",
@@ -1201,7 +1200,7 @@
       "NeedsCompilation": "no",
       "Author": "Kirill Müller [aut, cre] (ORCID: <https://orcid.org/0000-0002-1416-3412>), Hadley Wickham [aut], RStudio [cph]",
       "Maintainer": "Kirill Müller <kirill@cynkra.com>",
-      "Repository": "CRAN"
+      "Repository": "https://packagemanager.posit.co/cran/latest"
     },
     "pkgconfig": {
       "Package": "pkgconfig",
@@ -1971,7 +1970,7 @@
       "NeedsCompilation": "yes",
       "Author": "Jim Hester [aut] (ORCID: <https://orcid.org/0000-0002-2739-7082>), Hadley Wickham [aut] (ORCID: <https://orcid.org/0000-0003-4757-117X>), Jennifer Bryan [aut, cre] (ORCID: <https://orcid.org/0000-0002-6983-2759>), Shelby Bearrows [ctb], https://github.com/mandreyel/ [cph] (mio library), Jukka Jylänki [cph] (grisu3 implementation), Mikkel Jørgensen [cph] (grisu3 implementation), Posit Software, PBC [cph, fnd]",
       "Maintainer": "Jennifer Bryan <jenny@posit.co>",
-      "Repository": "CRAN"
+      "Repository": "https://packagemanager.posit.co/cran/latest"
     },
     "withr": {
       "Package": "withr",
@@ -2009,34 +2008,6 @@
       "NeedsCompilation": "no",
       "Author": "Jim Hester [aut], Lionel Henry [aut, cre], Kirill Müller [aut], Kevin Ushey [aut], Hadley Wickham [aut], Winston Chang [aut], Jennifer Bryan [ctb], Richard Cotton [ctb], Posit Software, PBC [cph, fnd]",
       "Maintainer": "Lionel Henry <lionel@posit.co>",
-      "Repository": "CRAN"
-    },
-    "zip": {
-      "Package": "zip",
-      "Version": "2.3.3",
-      "Source": "Repository",
-      "Title": "Cross-Platform 'zip' Compression",
-      "Authors@R": "c( person(\"Gábor\", \"Csárdi\", , \"csardi.gabor@gmail.com\", role = c(\"aut\", \"cre\")), person(\"Kuba\", \"Podgórski\", role = \"ctb\"), person(\"Rich\", \"Geldreich\", role = \"ctb\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"), comment = c(ROR = \"03wc8by49\")) )",
-      "Description": "Cross-Platform 'zip' Compression Library. A replacement for the 'zip' function, that does not require any additional external tools on any platform.",
-      "License": "MIT + file LICENSE",
-      "URL": "https://github.com/r-lib/zip, https://r-lib.github.io/zip/",
-      "BugReports": "https://github.com/r-lib/zip/issues",
-      "Suggests": [
-        "covr",
-        "pillar",
-        "processx",
-        "R6",
-        "testthat",
-        "withr"
-      ],
-      "Config/Needs/website": "tidyverse/tidytemplate",
-      "Config/testthat/edition": "3",
-      "Config/usethis/last-upkeep": "2025-05-07",
-      "Encoding": "UTF-8",
-      "RoxygenNote": "7.3.2.9000",
-      "NeedsCompilation": "yes",
-      "Author": "Gábor Csárdi [aut, cre], Kuba Podgórski [ctb], Rich Geldreich [ctb], Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>)",
-      "Maintainer": "Gábor Csárdi <csardi.gabor@gmail.com>",
       "Repository": "CRAN"
     }
   }
