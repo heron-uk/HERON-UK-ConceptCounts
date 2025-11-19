@@ -80,56 +80,52 @@
     },
     "CohortConstructor": {
       "Package": "CohortConstructor",
-      "Version": "0.5.0",
+      "Version": "0.6.0",
       "Source": "Repository",
       "Title": "Build and Manipulate Study Cohorts Using a Common Data Model",
-      "Authors@R": "c( person(\"Edward\", \"Burn\", , \"edward.burn@ndorms.ox.ac.uk\",  role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0002-9286-1128\")), person(\"Marti\", \"Catala\", , \"marti.catalasabate@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0000-0003-3308-9905\")), person(\"Nuria\", \"Mercade-Besora\", , \"nuria.mercadebesora@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0009-0006-7948-3747\")), person(\"Marta\", \"Alcalde-Herraiz\", , \"marta.alcaldeherraiz@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0009-0002-4405-1814\")), person(\"Mike\", \"Du\", , \"mike.du@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0000-0002-9517-8834\")), person(\"Yuchen\", \"Guo\", email = \"yuchen.guo@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0000-0002-0847-4855\")), person(\"Xihang\", \"Chen\", , \"xihang.chen@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0009-0001-8112-8959\")), person(\"Kim\", \"Lopez-Guell\", , \"kim.lopez@spc.ox.ac.uk\",  role = \"aut\", comment = c(ORCID = \"0000-0002-8462-8668\")), person(\"Elin\", \"Rowlands\", , \"elin.rowlands@ndorms.ox.ac.uk\",  role = \"aut\", comment = c(ORCID = \"0009-0005-5166-0417\")))",
+      "Authors@R": "c( person(\"Edward\", \"Burn\", , \"edward.burn@ndorms.ox.ac.uk\",  role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0002-9286-1128\")), person(\"Martí\", \"Català\", , \"marti.catalasabate@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0000-0003-3308-9905\")), person(\"Nuria\", \"Mercade-Besora\", , \"nuria.mercadebesora@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0009-0006-7948-3747\")), person(\"Marta\", \"Alcalde-Herraiz\", , \"marta.alcaldeherraiz@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0009-0002-4405-1814\")), person(\"Mike\", \"Du\", , \"mike.du@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0000-0002-9517-8834\")), person(\"Yuchen\", \"Guo\", email = \"yuchen.guo@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0000-0002-0847-4855\")), person(\"Xihang\", \"Chen\", , \"xihang.chen@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0009-0001-8112-8959\")), person(\"Kim\", \"Lopez-Guell\", , \"kim.lopez@spc.ox.ac.uk\",  role = \"aut\", comment = c(ORCID = \"0000-0002-8462-8668\")), person(\"Elin\", \"Rowlands\", , \"elin.rowlands@ndorms.ox.ac.uk\",  role = \"aut\", comment = c(ORCID = \"0009-0005-5166-0417\")))",
       "Description": "Create and manipulate study cohorts in data mapped to the  Observational Medical Outcomes Partnership Common Data Model.",
       "License": "Apache License (>= 2)",
       "Encoding": "UTF-8",
-      "RoxygenNote": "7.3.2",
+      "RoxygenNote": "7.3.3",
       "Imports": [
-        "CDMConnector (>= 1.7.0)",
-        "checkmate",
         "cli",
         "clock",
-        "dbplyr (>= 2.5.0)",
         "dplyr",
         "glue",
-        "magrittr",
-        "omopgenerics (>= 1.0.0)",
-        "PatientProfiles (>= 1.2.3)",
+        "omopgenerics (>= 1.3.2)",
+        "PatientProfiles (>= 1.4.4)",
         "purrr",
         "rlang",
         "tidyr",
         "utils"
       ],
       "Suggests": [
-        "DBI",
+        "CDMConnector (>= 1.7.0)",
+        "CirceR",
         "CodelistGenerator (>= 3.4.1)",
+        "CohortCharacteristics",
+        "covr",
+        "DBI",
+        "DiagrammeR",
         "DrugUtilisation",
         "duckdb",
-        "knitr",
-        "rmarkdown",
-        "testthat (>= 3.0.0)",
-        "tibble",
-        "stringr",
-        "IncidencePrevalence",
-        "omock (>= 0.2.0)",
-        "covr",
-        "RPostgres",
-        "odbc",
-        "CohortCharacteristics",
         "ggplot2",
-        "DiagrammeR",
-        "visOmopResults",
-        "gt",
-        "scales",
-        "here",
         "ggpubr",
+        "gt",
+        "here",
+        "IncidencePrevalence",
+        "knitr",
+        "odbc",
+        "omock (>= 0.5.0)",
+        "rmarkdown",
+        "RPostgres",
+        "scales",
         "SqlRender",
-        "CirceR",
-        "tictoc"
+        "stringr",
+        "testthat (>= 3.0.0)",
+        "tictoc",
+        "visOmopResults"
       ],
       "Config/testthat/edition": "3",
       "Config/testthat/parallel": "true",
@@ -140,9 +136,9 @@
       "URL": "https://ohdsi.github.io/CohortConstructor/, https://github.com/OHDSI/CohortConstructor",
       "LazyData": "true",
       "NeedsCompilation": "no",
-      "Author": "Edward Burn [aut, cre] (ORCID: <https://orcid.org/0000-0002-9286-1128>), Marti Catala [aut] (ORCID: <https://orcid.org/0000-0003-3308-9905>), Nuria Mercade-Besora [aut] (ORCID: <https://orcid.org/0009-0006-7948-3747>), Marta Alcalde-Herraiz [aut] (ORCID: <https://orcid.org/0009-0002-4405-1814>), Mike Du [aut] (ORCID: <https://orcid.org/0000-0002-9517-8834>), Yuchen Guo [aut] (ORCID: <https://orcid.org/0000-0002-0847-4855>), Xihang Chen [aut] (ORCID: <https://orcid.org/0009-0001-8112-8959>), Kim Lopez-Guell [aut] (ORCID: <https://orcid.org/0000-0002-8462-8668>), Elin Rowlands [aut] (ORCID: <https://orcid.org/0009-0005-5166-0417>)",
+      "Author": "Edward Burn [aut, cre] (ORCID: <https://orcid.org/0000-0002-9286-1128>), Martí Català [aut] (ORCID: <https://orcid.org/0000-0003-3308-9905>), Nuria Mercade-Besora [aut] (ORCID: <https://orcid.org/0009-0006-7948-3747>), Marta Alcalde-Herraiz [aut] (ORCID: <https://orcid.org/0009-0002-4405-1814>), Mike Du [aut] (ORCID: <https://orcid.org/0000-0002-9517-8834>), Yuchen Guo [aut] (ORCID: <https://orcid.org/0000-0002-0847-4855>), Xihang Chen [aut] (ORCID: <https://orcid.org/0009-0001-8112-8959>), Kim Lopez-Guell [aut] (ORCID: <https://orcid.org/0000-0002-8462-8668>), Elin Rowlands [aut] (ORCID: <https://orcid.org/0009-0005-5166-0417>)",
       "Maintainer": "Edward Burn <edward.burn@ndorms.ox.ac.uk>",
-      "Repository": "RSPM"
+      "Repository": "https://packagemanager.posit.co/cran/latest"
     },
     "DBI": {
       "Package": "DBI",
@@ -195,7 +191,7 @@
     },
     "OmopSketch": {
       "Package": "OmopSketch",
-      "Version": "0.5.1",
+      "Version": "1.0.0",
       "Source": "GitHub",
       "Title": "Characterise Tables of an OMOP Common Data Model Instance",
       "Authors@R": "c( person(  \"Marta\", \"Alcalde-Herraiz\",  email = \"marta.alcaldeherraiz@ndorms.ox.ac.uk\", role = c(\"aut\"),  comment = c(ORCID = \"0009-0002-4405-1814\") ), person( \"Kim\", \"Lopez-Guell\", email = \"kim.lopez@spc.ox.ac.uk\", role = c(\"aut\"), comment = c(ORCID = \"0000-0002-8462-8668\") ), person( \"Elin\", \"Rowlands\", email = \"elin.rowlands@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0009-0005-5166-0417\") ), person( \"Cecilia\", \"Campanile\", email = \"cecilia.campanile@ndorms.ox.ac.uk\",  role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0009-0007-6629-4661\") ), person( \"Edward\", \"Burn\", email = \"edward.burn@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0000-0002-9286-1128\") ), person( \"Martí\", \"Català\", email = \"marti.catalasabate@ndorms.ox.ac.uk\",  role = c(\"aut\"), comment = c(ORCID = \"0000-0003-3308-9905\") ))",
@@ -206,6 +202,7 @@
       "Roxygen": "list(markdown = TRUE)",
       "RoxygenNote": "7.3.3",
       "Suggests": [
+        "CDMConnector (>= 1.3.0)",
         "CodelistGenerator",
         "CohortCharacteristics",
         "DBI",
@@ -217,7 +214,7 @@
         "knitr",
         "lubridate",
         "odbc",
-        "OmopViewer",
+        "OmopViewer (>= 0.5.0)",
         "sortable",
         "reactable",
         "remotes",
@@ -229,27 +226,23 @@
         "omock (>= 0.4.0)",
         "covr",
         "ggplot2",
-        "visOmopResults (>= 1.3.0)",
+        "visOmopResults (>= 1.4.0)",
         "devtools",
         "usethis"
       ],
       "Config/testthat/edition": "3",
       "Config/testthat/parallel": "true",
       "Imports": [
-        "CDMConnector (>= 1.3.0)",
         "cli",
         "clock",
         "CohortConstructor (>= 0.3.1)",
         "dplyr",
-        "glue",
         "lifecycle",
-        "omopgenerics (>= 0.4.1)",
-        "PatientProfiles (>= 1.3.1)",
+        "omopgenerics (>= 1.3.1)",
+        "PatientProfiles (>= 1.4.3)",
         "purrr",
         "rlang",
-        "stats",
         "stringr",
-        "tibble",
         "tidyr"
       ],
       "Depends": [
@@ -260,16 +253,15 @@
       "VignetteBuilder": "knitr",
       "Author": "Marta Alcalde-Herraiz [aut] (ORCID: <https://orcid.org/0009-0002-4405-1814>), Kim Lopez-Guell [aut] (ORCID: <https://orcid.org/0000-0002-8462-8668>), Elin Rowlands [aut] (ORCID: <https://orcid.org/0009-0005-5166-0417>), Cecilia Campanile [aut, cre] (ORCID: <https://orcid.org/0009-0007-6629-4661>), Edward Burn [aut] (ORCID: <https://orcid.org/0000-0002-9286-1128>), Martí Català [aut] (ORCID: <https://orcid.org/0000-0003-3308-9905>)",
       "RemoteType": "github",
-      "Remotes": "OHDSI/OmopViewer",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "OmopSketch",
       "RemoteUsername": "OHDSI",
+      "RemoteRepo": "OmopSketch",
       "RemoteRef": "HEAD",
-      "RemoteSha": "32699b0c82eb93062387ff8e9ab2871a1c12e717"
+      "RemoteSha": "000e58883a88913e280e0987f3ee3a64cbfe4741",
+      "RemoteHost": "api.github.com"
     },
     "PatientProfiles": {
       "Package": "PatientProfiles",
-      "Version": "1.4.3",
+      "Version": "1.4.4",
       "Source": "Repository",
       "Type": "Package",
       "Title": "Identify Characteristics of Patients in the OMOP Common Data Model",
@@ -328,7 +320,7 @@
       "VignetteBuilder": "knitr",
       "NeedsCompilation": "no",
       "Author": "Martí Català [aut, cre] (ORCID: <https://orcid.org/0000-0003-3308-9905>), Yuchen Guo [aut] (ORCID: <https://orcid.org/0000-0002-0847-4855>), Mike Du [aut] (ORCID: <https://orcid.org/0000-0002-9517-8834>), Kim Lopez-Guell [aut] (ORCID: <https://orcid.org/0000-0002-8462-8668>), Edward Burn [aut] (ORCID: <https://orcid.org/0000-0002-9286-1128>), Nuria Mercade-Besora [aut] (ORCID: <https://orcid.org/0009-0006-7948-3747>), Xintong Li [ctb] (ORCID: <https://orcid.org/0000-0002-6872-5804>), Xihang Chen [ctb] (ORCID: <https://orcid.org/0009-0001-8112-8959>)",
-      "Repository": "https://packagemanager.posit.co/cran/latest"
+      "Repository": "CRAN"
     },
     "R6": {
       "Package": "R6",
@@ -354,6 +346,87 @@
       "NeedsCompilation": "no",
       "Author": "Winston Chang [aut, cre], Posit Software, PBC [cph, fnd]",
       "Maintainer": "Winston Chang <winston@posit.co>",
+      "Repository": "CRAN"
+    },
+    "RPostgres": {
+      "Package": "RPostgres",
+      "Version": "1.4.8",
+      "Source": "Repository",
+      "Title": "C++ Interface to PostgreSQL",
+      "Date": "2025-02-24",
+      "Authors@R": "c( person(\"Hadley\", \"Wickham\", role = \"aut\"), person(\"Jeroen\", \"Ooms\", role = \"aut\"), person(\"Kirill\", \"Müller\", , \"kirill@cynkra.com\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0002-1416-3412\")), person(\"RStudio\", role = \"cph\"), person(\"R Consortium\", role = \"fnd\"), person(\"Tomoaki\", \"Nishiyama\", role = \"ctb\", comment = \"Code for encoding vectors into strings derived from RPostgreSQL\") )",
+      "Description": "Fully DBI-compliant C++-backed interface to PostgreSQL <https://www.postgresql.org/>, an open-source relational database.",
+      "License": "MIT + file LICENSE",
+      "URL": "https://rpostgres.r-dbi.org, https://github.com/r-dbi/RPostgres",
+      "BugReports": "https://github.com/r-dbi/RPostgres/issues",
+      "Depends": [
+        "R (>= 3.1.0)"
+      ],
+      "Imports": [
+        "bit64",
+        "blob (>= 1.2.0)",
+        "DBI (>= 1.2.0)",
+        "hms (>= 1.0.0)",
+        "lubridate",
+        "methods",
+        "withr"
+      ],
+      "Suggests": [
+        "callr",
+        "covr",
+        "DBItest (>= 1.7.3)",
+        "knitr",
+        "rlang",
+        "rmarkdown",
+        "testthat (>= 3.0.0)"
+      ],
+      "LinkingTo": [
+        "cpp11",
+        "plogr (>= 0.2.0)"
+      ],
+      "Config/Needs/website": "r-dbi/dbitemplate",
+      "VignetteBuilder": "knitr",
+      "Config/Needs/build": "decor",
+      "Config/autostyle/scope": "line_breaks",
+      "Config/autostyle/strict": "false",
+      "Config/testthat/edition": "3",
+      "Encoding": "UTF-8",
+      "LazyLoad": "true",
+      "RoxygenNote": "7.3.2.9000",
+      "SystemRequirements": "libpq >= 9.0: libpq-dev (deb) or postgresql-devel (rpm)",
+      "Collate": "'PqDriver.R' 'PqConnection.R' 'PqResult.R' 'RPostgres-pkg.R' 'Redshift.R' 'cpp11.R' 'dbAppendTable_PqConnection.R' 'dbBegin_PqConnection.R' 'dbBind_PqResult.R' 'dbClearResult_PqResult.R' 'dbColumnInfo_PqResult.R' 'dbCommit_PqConnection.R' 'dbConnect_PqDriver.R' 'dbConnect_RedshiftDriver.R' 'dbDataType_PqConnection.R' 'dbDataType_PqDriver.R' 'dbDisconnect_PqConnection.R' 'dbExistsTable_PqConnection_Id.R' 'dbExistsTable_PqConnection_character.R' 'dbFetch_PqResult.R' 'dbGetInfo_PqConnection.R' 'dbGetInfo_PqDriver.R' 'dbGetRowCount_PqResult.R' 'dbGetRowsAffected_PqResult.R' 'dbGetStatement_PqResult.R' 'dbHasCompleted_PqResult.R' 'dbIsValid_PqConnection.R' 'dbIsValid_PqDriver.R' 'dbIsValid_PqResult.R' 'dbListFields_PqConnection_Id.R' 'dbListFields_PqConnection_character.R' 'dbListObjects_PqConnection_ANY.R' 'dbListTables_PqConnection.R' 'dbQuoteIdentifier_PqConnection_Id.R' 'dbQuoteIdentifier_PqConnection_SQL.R' 'dbQuoteIdentifier_PqConnection_character.R' 'dbQuoteLiteral_PqConnection.R' 'dbQuoteString_PqConnection_SQL.R' 'dbQuoteString_PqConnection_character.R' 'dbReadTable_PqConnection_character.R' 'dbRemoveTable_PqConnection_character.R' 'dbRollback_PqConnection.R' 'dbSendQuery_PqConnection.R' 'dbUnloadDriver_PqDriver.R' 'dbUnquoteIdentifier_PqConnection_SQL.R' 'dbWriteTable_PqConnection_character_data.frame.R' 'default.R' 'export.R' 'quote.R' 'show_PqConnection.R' 'sqlData_PqConnection.R' 'tables.R' 'transactions.R' 'utils.R'",
+      "NeedsCompilation": "yes",
+      "Author": "Hadley Wickham [aut], Jeroen Ooms [aut], Kirill Müller [aut, cre] (<https://orcid.org/0000-0002-1416-3412>), RStudio [cph], R Consortium [fnd], Tomoaki Nishiyama [ctb] (Code for encoding vectors into strings derived from RPostgreSQL)",
+      "Maintainer": "Kirill Müller <kirill@cynkra.com>",
+      "Repository": "RSPM"
+    },
+    "Rcpp": {
+      "Package": "Rcpp",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Title": "Seamless R and C++ Integration",
+      "Date": "2025-07-01",
+      "Authors@R": "c(person(\"Dirk\", \"Eddelbuettel\", role = c(\"aut\", \"cre\"), email = \"edd@debian.org\", comment = c(ORCID = \"0000-0001-6419-907X\")), person(\"Romain\", \"Francois\", role = \"aut\", comment = c(ORCID = \"0000-0002-2444-4226\")), person(\"JJ\", \"Allaire\", role = \"aut\", comment = c(ORCID = \"0000-0003-0174-9868\")), person(\"Kevin\", \"Ushey\", role = \"aut\", comment = c(ORCID = \"0000-0003-2880-7407\")), person(\"Qiang\", \"Kou\", role = \"aut\", comment = c(ORCID = \"0000-0001-6786-5453\")), person(\"Nathan\", \"Russell\", role = \"aut\"), person(\"Iñaki\", \"Ucar\", role = \"aut\", comment = c(ORCID = \"0000-0001-6403-5550\")), person(\"Doug\", \"Bates\", role = \"aut\", comment = c(ORCID = \"0000-0001-8316-9503\")), person(\"John\", \"Chambers\", role = \"aut\"))",
+      "Description": "The 'Rcpp' package provides R functions as well as C++ classes which offer a seamless integration of R and C++. Many R data types and objects can be mapped back and forth to C++ equivalents which facilitates both writing of new code as well as easier integration of third-party libraries. Documentation about 'Rcpp' is provided by several vignettes included in this package, via the 'Rcpp Gallery' site at <https://gallery.rcpp.org>, the paper by Eddelbuettel and Francois (2011, <doi:10.18637/jss.v040.i08>), the book by Eddelbuettel (2013, <doi:10.1007/978-1-4614-6868-4>) and the paper by Eddelbuettel and Balamuta (2018, <doi:10.1080/00031305.2017.1375990>); see 'citation(\"Rcpp\")' for details.",
+      "Imports": [
+        "methods",
+        "utils"
+      ],
+      "Suggests": [
+        "tinytest",
+        "inline",
+        "rbenchmark",
+        "pkgKitten (>= 0.1.2)"
+      ],
+      "URL": "https://www.rcpp.org, https://dirk.eddelbuettel.com/code/rcpp.html, https://github.com/RcppCore/Rcpp",
+      "License": "GPL (>= 2)",
+      "BugReports": "https://github.com/RcppCore/Rcpp/issues",
+      "MailingList": "rcpp-devel@lists.r-forge.r-project.org",
+      "RoxygenNote": "6.1.1",
+      "Encoding": "UTF-8",
+      "NeedsCompilation": "yes",
+      "Author": "Dirk Eddelbuettel [aut, cre] (ORCID: <https://orcid.org/0000-0001-6419-907X>), Romain Francois [aut] (ORCID: <https://orcid.org/0000-0002-2444-4226>), JJ Allaire [aut] (ORCID: <https://orcid.org/0000-0003-0174-9868>), Kevin Ushey [aut] (ORCID: <https://orcid.org/0000-0003-2880-7407>), Qiang Kou [aut] (ORCID: <https://orcid.org/0000-0001-6786-5453>), Nathan Russell [aut], Iñaki Ucar [aut] (ORCID: <https://orcid.org/0000-0001-6403-5550>), Doug Bates [aut] (ORCID: <https://orcid.org/0000-0001-8316-9503>), John Chambers [aut]",
+      "Maintainer": "Dirk Eddelbuettel <edd@debian.org>",
       "Repository": "CRAN"
     },
     "backports": {
@@ -1060,6 +1133,52 @@
       "Maintainer": "Lionel Henry <lionel@posit.co>",
       "Repository": "RSPM"
     },
+    "lubridate": {
+      "Package": "lubridate",
+      "Version": "1.9.4",
+      "Source": "Repository",
+      "Type": "Package",
+      "Title": "Make Dealing with Dates a Little Easier",
+      "Authors@R": "c( person(\"Vitalie\", \"Spinu\", , \"spinuvit@gmail.com\", role = c(\"aut\", \"cre\")), person(\"Garrett\", \"Grolemund\", role = \"aut\"), person(\"Hadley\", \"Wickham\", role = \"aut\"), person(\"Davis\", \"Vaughan\", role = \"ctb\"), person(\"Ian\", \"Lyttle\", role = \"ctb\"), person(\"Imanuel\", \"Costigan\", role = \"ctb\"), person(\"Jason\", \"Law\", role = \"ctb\"), person(\"Doug\", \"Mitarotonda\", role = \"ctb\"), person(\"Joseph\", \"Larmarange\", role = \"ctb\"), person(\"Jonathan\", \"Boiser\", role = \"ctb\"), person(\"Chel Hee\", \"Lee\", role = \"ctb\") )",
+      "Maintainer": "Vitalie Spinu <spinuvit@gmail.com>",
+      "Description": "Functions to work with date-times and time-spans: fast and user friendly parsing of date-time data, extraction and updating of components of a date-time (years, months, days, hours, minutes, and seconds), algebraic manipulation on date-time and time-span objects. The 'lubridate' package has a consistent and memorable syntax that makes working with dates easy and fun.",
+      "License": "GPL (>= 2)",
+      "URL": "https://lubridate.tidyverse.org, https://github.com/tidyverse/lubridate",
+      "BugReports": "https://github.com/tidyverse/lubridate/issues",
+      "Depends": [
+        "methods",
+        "R (>= 3.2)"
+      ],
+      "Imports": [
+        "generics",
+        "timechange (>= 0.3.0)"
+      ],
+      "Suggests": [
+        "covr",
+        "knitr",
+        "rmarkdown",
+        "testthat (>= 2.1.0)",
+        "vctrs (>= 0.6.5)"
+      ],
+      "Enhances": [
+        "chron",
+        "data.table",
+        "timeDate",
+        "tis",
+        "zoo"
+      ],
+      "VignetteBuilder": "knitr",
+      "Config/Needs/website": "tidyverse/tidytemplate",
+      "Config/testthat/edition": "3",
+      "Encoding": "UTF-8",
+      "LazyData": "true",
+      "RoxygenNote": "7.2.3",
+      "SystemRequirements": "C++11, A system with zoneinfo data (e.g. /usr/share/zoneinfo). On Windows the zoneinfo included with R is used.",
+      "Collate": "'Dates.r' 'POSIXt.r' 'util.r' 'parse.r' 'timespans.r' 'intervals.r' 'difftimes.r' 'durations.r' 'periods.r' 'accessors-date.R' 'accessors-day.r' 'accessors-dst.r' 'accessors-hour.r' 'accessors-minute.r' 'accessors-month.r' 'accessors-quarter.r' 'accessors-second.r' 'accessors-tz.r' 'accessors-week.r' 'accessors-year.r' 'am-pm.r' 'time-zones.r' 'numeric.r' 'coercion.r' 'constants.r' 'cyclic_encoding.r' 'data.r' 'decimal-dates.r' 'deprecated.r' 'format_ISO8601.r' 'guess.r' 'hidden.r' 'instants.r' 'leap-years.r' 'ops-addition.r' 'ops-compare.r' 'ops-division.r' 'ops-integer-division.r' 'ops-m+.r' 'ops-modulo.r' 'ops-multiplication.r' 'ops-subtraction.r' 'package.r' 'pretty.r' 'round.r' 'stamp.r' 'tzdir.R' 'update.r' 'vctrs.R' 'zzz.R'",
+      "NeedsCompilation": "yes",
+      "Author": "Vitalie Spinu [aut, cre], Garrett Grolemund [aut], Hadley Wickham [aut], Davis Vaughan [ctb], Ian Lyttle [ctb], Imanuel Costigan [ctb], Jason Law [ctb], Doug Mitarotonda [ctb], Joseph Larmarange [ctb], Jonathan Boiser [ctb], Chel Hee Lee [ctb]",
+      "Repository": "RSPM"
+    },
     "magrittr": {
       "Package": "magrittr",
       "Version": "2.0.4",
@@ -1091,16 +1210,71 @@
       "Maintainer": "Lionel Henry <lionel@posit.co>",
       "Repository": "https://packagemanager.posit.co/cran/latest"
     },
+    "odbc": {
+      "Package": "odbc",
+      "Version": "1.6.3",
+      "Source": "Repository",
+      "Title": "Connect to ODBC Compatible Databases (using the DBI Interface)",
+      "Authors@R": "c( person(\"Jim\", \"Hester\", role = \"aut\"), person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = c(\"aut\", \"cre\")), person(\"Oliver\", \"Gjoneski\", role = \"aut\"), person(\"Simon\", \"Couch\", email = \"simon.couch@posit.co\", role = \"aut\"), person(\"lexicalunit\", role = \"cph\", comment = \"nanodbc library\"), person(\"Google Inc.\", role = \"cph\", comment = \"cctz library\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")) )",
+      "Description": "A DBI-compatible interface to ODBC databases.",
+      "License": "MIT + file LICENSE",
+      "URL": "https://odbc.r-dbi.org, https://github.com/r-dbi/odbc, https://solutions.posit.co/connections/db/",
+      "BugReports": "https://github.com/r-dbi/odbc/issues",
+      "Depends": [
+        "R (>= 4.0.0)"
+      ],
+      "Imports": [
+        "bit64",
+        "blob (>= 1.2.0)",
+        "cli",
+        "DBI (>= 1.0.0)",
+        "hms",
+        "lifecycle",
+        "methods",
+        "Rcpp (>= 0.12.11)",
+        "rlang (>= 1.1.0)"
+      ],
+      "Suggests": [
+        "connectcreds",
+        "covr",
+        "DBItest",
+        "httr2",
+        "knitr",
+        "magrittr",
+        "paws.common",
+        "rmarkdown",
+        "RSQLite",
+        "testthat (>= 3.0.0)",
+        "tibble",
+        "withr"
+      ],
+      "LinkingTo": [
+        "Rcpp"
+      ],
+      "ByteCompile": "true",
+      "Config/Needs/check": "pkgbuild",
+      "Config/Needs/website": "tidyverse/tidytemplate",
+      "Config/testthat/edition": "3",
+      "Encoding": "UTF-8",
+      "RoxygenNote": "7.3.2",
+      "SystemRequirements": "GNU make, An ODBC3 driver manager and drivers.",
+      "Collate": "'RcppExports.R' 'aaa-odbc-data-type.R' 'connection-pane.R' 'dbi-connection.R' 'odbc-connection.R' 'db.R' 'dbi-driver.R' 'dbi-result.R' 'dbi-table.R' 'dbi.R' 'driver-access.R' 'driver-bigquery.R' 'driver-databricks.R' 'driver-db2.R' 'driver-hana.R' 'driver-hive.R' 'driver-impala.R' 'driver-mysql.R' 'driver-netezza.R' 'driver-oracle.R' 'driver-postgres.R' 'driver-redshift.R' 'driver-snowflake.R' 'driver-spark.R' 'driver-sql-server.R' 'driver-sqlite.R' 'driver-teradata.R' 'driver-vertica.R' 'import-standalone-obj-type.R' 'import-standalone-types-check.R' 'odbc-config.R' 'odbc-data-sources.R' 'odbc-drivers.R' 'odbc-package.R' 'odbc.R' 'utils.R' 'zzz.R'",
+      "VignetteBuilder": "knitr",
+      "NeedsCompilation": "yes",
+      "Author": "Jim Hester [aut], Hadley Wickham [aut, cre], Oliver Gjoneski [aut], Simon Couch [aut], lexicalunit [cph] (nanodbc library), Google Inc. [cph] (cctz library), Posit Software, PBC [cph, fnd]",
+      "Maintainer": "Hadley Wickham <hadley@posit.co>",
+      "Repository": "https://packagemanager.posit.co/cran/latest"
+    },
     "omopgenerics": {
       "Package": "omopgenerics",
-      "Version": "1.3.2",
+      "Version": "1.3.3",
       "Source": "Repository",
       "Title": "Methods and Classes for the OMOP Common Data Model",
       "Authors@R": "c( person( \"Martí\", \"Català\", email = \"marti.catalasabate@ndorms.ox.ac.uk\",  role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0003-3308-9905\") ), person( \"Edward\", \"Burn\", email = \"edward.burn@ndorms.ox.ac.uk\", role = c(\"aut\"), comment = c(ORCID = \"0000-0002-9286-1128\") ), person( \"Mike\", \"Du\", email = \"mike.du@ndorms.ox.ac.uk\", role = c(\"ctb\"),  comment = c(ORCID = \"0000-0002-9517-8834\") ), person( \"Yuchen\", \"Guo\", email = \"yuchen.guo@ndorms.ox.ac.uk\", role = c(\"ctb\"), comment = c(ORCID = \"0000-0002-0847-4855\") ), person( \"Adam\", \"Black\", email = \"black@ohdsi.org\", role = c(\"ctb\"), comment = c(ORCID = \"0000-0001-5576-8701\") ), person( \"Marta\", \"Alcalde-Herraiz\",  email = \"marta.alcaldeherraiz@ndorms.ox.ac.uk\", role = c(\"ctb\"),  comment = c(ORCID = \"0009-0002-4405-1814\") ) )",
       "Description": "Provides definitions of core classes and methods used by analytic  pipelines that query the OMOP (Observational Medical Outcomes Partnership)  common data model.",
       "License": "Apache License (>= 2)",
       "Encoding": "UTF-8",
-      "RoxygenNote": "7.3.2",
+      "RoxygenNote": "7.3.3",
       "Imports": [
         "cli",
         "dbplyr (>= 2.5.1)",
@@ -1226,6 +1400,28 @@
       "NeedsCompilation": "no",
       "Repository": "RSPM"
     },
+    "plogr": {
+      "Package": "plogr",
+      "Version": "0.2.0",
+      "Source": "Repository",
+      "Title": "The 'plog' C++ Logging Library",
+      "Date": "2018-03-24",
+      "Authors@R": "c( person(\"Kirill\", \"Müller\", role = c(\"aut\", \"cre\"), email = \"krlmlr+r@mailbox.org\"), person(\"Sergey\", \"Podobry\", role = \"cph\", comment = \"Author of the bundled plog library\"))",
+      "Description": "A simple header-only logging library for C++. Add 'LinkingTo: plogr' to 'DESCRIPTION', and '#include <plogr.h>' in your C++ modules to use it.",
+      "Suggests": [
+        "Rcpp"
+      ],
+      "License": "MIT + file LICENSE",
+      "Encoding": "UTF-8",
+      "LazyData": "true",
+      "URL": "https://github.com/krlmlr/plogr#readme",
+      "BugReports": "https://github.com/krlmlr/plogr/issues",
+      "RoxygenNote": "6.0.1.9000",
+      "NeedsCompilation": "no",
+      "Author": "Kirill Müller [aut, cre], Sergey Podobry [cph] (Author of the bundled plog library)",
+      "Maintainer": "Kirill Müller <krlmlr+r@mailbox.org>",
+      "Repository": "RSPM"
+    },
     "prettyunits": {
       "Package": "prettyunits",
       "Version": "1.2.0",
@@ -1286,7 +1482,7 @@
     },
     "purrr": {
       "Package": "purrr",
-      "Version": "1.1.0",
+      "Version": "1.2.0",
       "Source": "Repository",
       "Title": "Functional Programming Tools",
       "Authors@R": "c( person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0003-4757-117X\")), person(\"Lionel\", \"Henry\", , \"lionel@posit.co\", role = \"aut\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"), comment = c(ROR = \"https://ror.org/03wc8by49\")) )",
@@ -1305,13 +1501,13 @@
         "vctrs (>= 0.6.3)"
       ],
       "Suggests": [
-        "carrier (>= 0.2.0)",
+        "carrier (>= 0.3.0)",
         "covr",
         "dplyr (>= 0.7.8)",
         "httr",
         "knitr",
         "lubridate",
-        "mirai (>= 2.4.0)",
+        "mirai (>= 2.5.1)",
         "rmarkdown",
         "testthat (>= 3.0.0)",
         "tibble",
@@ -1327,15 +1523,15 @@
       "Config/testthat/edition": "3",
       "Config/testthat/parallel": "TRUE",
       "Encoding": "UTF-8",
-      "RoxygenNote": "7.3.2",
+      "RoxygenNote": "7.3.3",
       "NeedsCompilation": "yes",
       "Author": "Hadley Wickham [aut, cre] (ORCID: <https://orcid.org/0000-0003-4757-117X>), Lionel Henry [aut], Posit Software, PBC [cph, fnd] (ROR: <https://ror.org/03wc8by49>)",
       "Maintainer": "Hadley Wickham <hadley@posit.co>",
-      "Repository": "CRAN"
+      "Repository": "https://packagemanager.posit.co/cran/latest"
     },
     "readr": {
       "Package": "readr",
-      "Version": "2.1.5",
+      "Version": "2.1.6",
       "Source": "Repository",
       "Title": "Read Rectangular Text Data",
       "Authors@R": "c( person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = \"aut\"), person(\"Jim\", \"Hester\", role = \"aut\"), person(\"Romain\", \"Francois\", role = \"ctb\"), person(\"Jennifer\", \"Bryan\", , \"jenny@posit.co\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0002-6983-2759\")), person(\"Shelby\", \"Bearrows\", role = \"ctb\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")), person(\"https://github.com/mandreyel/\", role = \"cph\", comment = \"mio library\"), person(\"Jukka\", \"Jylänki\", role = c(\"ctb\", \"cph\"), comment = \"grisu3 implementation\"), person(\"Mikkel\", \"Jørgensen\", role = c(\"ctb\", \"cph\"), comment = \"grisu3 implementation\") )",
@@ -1383,11 +1579,11 @@
       "Config/testthat/parallel": "false",
       "Encoding": "UTF-8",
       "Language": "en-US",
-      "RoxygenNote": "7.2.3",
+      "RoxygenNote": "7.3.3",
       "NeedsCompilation": "yes",
-      "Author": "Hadley Wickham [aut], Jim Hester [aut], Romain Francois [ctb], Jennifer Bryan [aut, cre] (<https://orcid.org/0000-0002-6983-2759>), Shelby Bearrows [ctb], Posit Software, PBC [cph, fnd], https://github.com/mandreyel/ [cph] (mio library), Jukka Jylänki [ctb, cph] (grisu3 implementation), Mikkel Jørgensen [ctb, cph] (grisu3 implementation)",
+      "Author": "Hadley Wickham [aut], Jim Hester [aut], Romain Francois [ctb], Jennifer Bryan [aut, cre] (ORCID: <https://orcid.org/0000-0002-6983-2759>), Shelby Bearrows [ctb], Posit Software, PBC [cph, fnd], https://github.com/mandreyel/ [cph] (mio library), Jukka Jylänki [ctb, cph] (grisu3 implementation), Mikkel Jørgensen [ctb, cph] (grisu3 implementation)",
       "Maintainer": "Jennifer Bryan <jenny@posit.co>",
-      "Repository": "RSPM"
+      "Repository": "https://packagemanager.posit.co/cran/latest"
     },
     "renv": {
       "Package": "renv",
@@ -1595,7 +1791,7 @@
     },
     "stringr": {
       "Package": "stringr",
-      "Version": "1.5.2",
+      "Version": "1.6.0",
       "Source": "Repository",
       "Title": "Simple, Consistent Wrappers for Common String Operations",
       "Authors@R": "c( person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = c(\"aut\", \"cre\", \"cph\")), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")) )",
@@ -1604,7 +1800,7 @@
       "URL": "https://stringr.tidyverse.org, https://github.com/tidyverse/stringr",
       "BugReports": "https://github.com/tidyverse/stringr/issues",
       "Depends": [
-        "R (>= 3.6)"
+        "R (>= 4.1.0)"
       ],
       "Imports": [
         "cli",
@@ -1628,10 +1824,11 @@
       ],
       "VignetteBuilder": "knitr",
       "Config/Needs/website": "tidyverse/tidytemplate",
+      "Config/potools/style": "explicit",
       "Config/testthat/edition": "3",
       "Encoding": "UTF-8",
       "LazyData": "true",
-      "RoxygenNote": "7.3.2",
+      "RoxygenNote": "7.3.3",
       "NeedsCompilation": "no",
       "Author": "Hadley Wickham [aut, cre, cph], Posit Software, PBC [cph, fnd]",
       "Maintainer": "Hadley Wickham <hadley@posit.co>",
@@ -1792,6 +1989,34 @@
       "NeedsCompilation": "yes",
       "Author": "Lionel Henry [aut, cre], Hadley Wickham [aut], Posit Software, PBC [cph, fnd]",
       "Maintainer": "Lionel Henry <lionel@posit.co>",
+      "Repository": "RSPM"
+    },
+    "timechange": {
+      "Package": "timechange",
+      "Version": "0.3.0",
+      "Source": "Repository",
+      "Title": "Efficient Manipulation of Date-Times",
+      "Authors@R": "c(person(\"Vitalie\", \"Spinu\", email = \"spinuvit@gmail.com\", role = c(\"aut\", \"cre\")), person(\"Google Inc.\", role = c(\"ctb\", \"cph\")))",
+      "Description": "Efficient routines for manipulation of date-time objects while accounting for time-zones and daylight saving times. The package includes utilities for updating of date-time components (year, month, day etc.), modification of time-zones, rounding of date-times, period addition and subtraction etc. Parts of the 'CCTZ' source code, released under the Apache 2.0 License, are included in this package. See <https://github.com/google/cctz> for more details.",
+      "Depends": [
+        "R (>= 3.3)"
+      ],
+      "License": "GPL (>= 3)",
+      "Encoding": "UTF-8",
+      "LinkingTo": [
+        "cpp11 (>= 0.2.7)"
+      ],
+      "Suggests": [
+        "testthat (>= 0.7.1.99)",
+        "knitr"
+      ],
+      "SystemRequirements": "A system with zoneinfo data (e.g. /usr/share/zoneinfo) as well as a recent-enough C++11 compiler (such as g++-4.8 or later). On Windows the zoneinfo included with R is used.",
+      "BugReports": "https://github.com/vspinu/timechange/issues",
+      "URL": "https://github.com/vspinu/timechange/",
+      "RoxygenNote": "7.2.1",
+      "NeedsCompilation": "yes",
+      "Author": "Vitalie Spinu [aut, cre], Google Inc. [ctb, cph]",
+      "Maintainer": "Vitalie Spinu <spinuvit@gmail.com>",
       "Repository": "RSPM"
     },
     "tzdb": {
