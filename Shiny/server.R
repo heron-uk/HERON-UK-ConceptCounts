@@ -84,12 +84,7 @@ server <- function(input, output, session) {
     },
     ignoreInit = TRUE
   )
-  shiny::observeEvent(input$summarise_concept_id_counts_sex,
-    {
-      updateButtons$summarise_concept_id_counts <- TRUE
-    },
-    ignoreInit = TRUE
-  )
+ 
   shiny::observeEvent(input$summarise_concept_id_counts_time_interval,
     {
       updateButtons$summarise_concept_id_counts <- TRUE
@@ -134,8 +129,7 @@ server <- function(input, output, session) {
       ) |>
       omopgenerics::filterGroup(.data$omop_table %in% input$summarise_concept_id_counts_omop_table) |>
       omopgenerics::filterStrata(
-        .data$age_group %in% input$summarise_concept_id_counts_age_group,
-        .data$sex %in% input$summarise_concept_id_counts_sex
+        .data$age_group %in% input$summarise_concept_id_counts_age_group
       ) |>
       omopgenerics::filterAdditional(.data$time_interval %in% input$summarise_concept_id_counts_time_interval) 
       
@@ -157,8 +151,21 @@ server <- function(input, output, session) {
   )
   
   getTopConceptsTable <- shiny::reactive({
-    getSummariseConceptIdCountsData() |>
-      OmopSketch::tableTopConceptCounts(type = "gt", top = as.numeric(input$top_concepts_top))
+    if(length(input$summarise_concept_id_counts_estimate_name) > 1) {
+      tibble("Message" = "Choose only one estimate name") |> gt::gt() |>   
+        gt::tab_options(
+        table.width = pct(50),
+        table.align = "center"
+      )
+    } else if(input$summarise_concept_id_counts_estimate_name == "count_records") {
+      getSummariseConceptIdCountsData() |>
+        OmopSketch::tableTopConceptCounts(type = "gt", top = as.numeric(input$top_concepts_top), countBy = "record")
+    } else if(input$summarise_concept_id_counts_estimate_name == "count_subjects") {
+      getSummariseConceptIdCountsData() |>
+        OmopSketch::tableTopConceptCounts(type = "gt", top = as.numeric(input$top_concepts_top), countBy = "person")
+    } else {
+      visOmopResults::emptyTable()
+    }
   })
   output$top_concepts_table <- gt::render_gt({
     getTopConceptsTable()
