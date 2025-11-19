@@ -50,13 +50,3 @@ omopgenerics::exportSummarisedResult(result |> omopgenerics::bind(),
                                      path = outputFolder)
 
 
-
-files_to_zip <- list.files(outputFolder)
-files_to_zip <- files_to_zip[stringr::str_detect(files_to_zip, cdmName)]
-
-zip::zip(
-  zipfile = file.path(paste0(outputFolder, "/results_concept_counts_", cdmName, ".zip")),
-  files = files_to_zip,
-  root = outputFolder
-)
-

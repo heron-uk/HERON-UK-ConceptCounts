@@ -1,5 +1,13 @@
 renv::activate()
 renv::restore()
+
+library(DBI)
+library(CDMConnector)
+library(OmopSketch)
+library(odbc)
+library(RPostgres)
+
+
 cdmName <- "..."
 
 con <- DBI::dbConnect("...")
