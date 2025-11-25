@@ -78,12 +78,6 @@ server <- function(input, output, session) {
     },
     ignoreInit = TRUE
   )
-  shiny::observeEvent(input$summarise_concept_id_counts_age_group,
-    {
-      updateButtons$summarise_concept_id_counts <- TRUE
-    },
-    ignoreInit = TRUE
-  )
  
   shiny::observeEvent(input$summarise_concept_id_counts_time_interval,
     {
@@ -128,9 +122,6 @@ server <- function(input, output, session) {
         .data$estimate_name %in% input$summarise_concept_id_counts_estimate_name
       ) |>
       omopgenerics::filterGroup(.data$omop_table %in% input$summarise_concept_id_counts_omop_table) |>
-      omopgenerics::filterStrata(
-        .data$age_group %in% input$summarise_concept_id_counts_age_group
-      ) |>
       omopgenerics::filterAdditional(.data$time_interval %in% input$summarise_concept_id_counts_time_interval) 
       
   })
