@@ -2,7 +2,7 @@ start_time <- Sys.time()
 
 outputFolder <- here::here("Results")
 
-log_file <- file.path(outputFolder, paste0("/log_", cdmName, "_", format(Sys.time(), "%d_%m_%Y_%H_%M_%S"),".txt"))
+log_file <- file.path(outputFolder, paste0("/log_", omopgenerics::cdmName(cdm), "_", format(Sys.time(), "%d_%m_%Y_%H_%M_%S"),".txt"))
 
 omopgenerics::createLogFile(logFile = log_file)
 
@@ -17,29 +17,19 @@ tableName <- intersect(c("visit_occurrence","visit_detail", "condition_occurrenc
 
 omopgenerics::logMessage(paste0("Starting concept counts in ", paste(tableName, collapse = ", ")))
 
-sex <- FALSE
-ageGroup <- list(c(0, 17), c(18, 65), c(66, Inf) )
-interval <- "years"
-dateRange <- as.Date(c("2012-01-01", NA))
-
 result[["conceptCounts"]] <- OmopSketch::summariseConceptIdCounts(cdm = cdm,
                                                omopTableName = tableName,
                                                countBy = c("record", "person"),
-                                               interval = interval,
-                                               sex = sex,
-                                               ageGroup = ageGroup,
-                                               dateRange = dateRange,
+                                               interval = "years",
+                                               sex = FALSE,
+                                               ageGroup = NULL,
+                                               dateRange = as.Date(c("2012-01-01", NA)),
                                                sample = NULL)
 
 # Calculate duration and log
 dur <- abs(as.numeric(Sys.time() - start_time, units = "secs"))
 
 omopgenerics::logMessage(paste("Study code finished. Code ran in", floor(dur / 60), "min and", dur %% 60 %/% 1, "sec"))
-
-# Close connection
-CDMConnector::cdmDisconnect(cdm)
-
-omopgenerics::logMessage("Database connection closed")
 
 # Zip the results
 omopgenerics::logMessage("Export and zip results")
