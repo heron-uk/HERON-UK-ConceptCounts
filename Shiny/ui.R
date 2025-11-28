@@ -21,31 +21,6 @@ ui <- bslib::page_navbar(
   bslib::nav_panel(
     title = "Snapshot",
     icon = shiny::icon("camera"),
-    bslib::layout_sidebar(
-      sidebar = bslib::sidebar(
-        shinyWidgets::pickerInput(
-          inputId = "summarise_omop_snapshot_cdm_name",
-          label = "CDM name",
-          choices = choices$summarise_omop_snapshot_cdm_name,
-          selected = selected$summarise_omop_snapshot_cdm_name,
-          multiple = TRUE,
-          options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3")
-        ),
-        shinyWidgets::pickerInput(
-          inputId = "summarise_omop_snapshot_variable_name",
-          label = "Variable name",
-          choices = choices$summarise_omop_snapshot_variable_name,
-          selected = selected$summarise_omop_snapshot_variable_name,
-          multiple = TRUE,
-          options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3")
-        ),
-        position = "left"
-      ),
-      shiny::actionButton(
-        inputId = "update_summarise_omop_snapshot",
-        label = "Update content",
-        width = "200px"
-      ),
       shiny::div(shiny::textOutput(outputId = "update_message_summarise_omop_snapshot"), class = "ov_update_button"),
       bslib::navset_card_tab(
         bslib::nav_panel(
@@ -72,7 +47,6 @@ ui <- bslib::page_navbar(
           )
         )
       )
-    )
   ),
   bslib::nav_panel(
     title = "Concept Counts",
@@ -89,9 +63,9 @@ ui <- bslib::page_navbar(
         ),
         shinyWidgets::pickerInput(
           inputId = "summarise_concept_id_counts_omop_table",
-          label = "Omop table",
+          label = "OMOP CDM table",
           choices = choices$summarise_concept_id_counts_omop_table,
-          selected = selected$summarise_concept_id_counts_omop_table,
+          selected = selected$summarise_concept_id_counts_omop_table[1],
           multiple = TRUE,
           options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3")
         ),
@@ -177,13 +151,10 @@ ui <- bslib::page_navbar(
             ),
             bslib::layout_sidebar(
               sidebar = bslib::sidebar(
-                shinyWidgets::pickerInput(
+                shinyWidgets::numericInputIcon(
                   inputId = "top_concepts_top",
-                  label = "Top",
-                  choices = c(5, 10, 25, 50, 100),
-                  selected = 10,
-                  multiple = FALSE,
-                  options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3")
+                  label = "Number of most frequent concepts",
+                  value = 10
                 ),
                 position = "right"
               ),
@@ -194,6 +165,14 @@ ui <- bslib::page_navbar(
         )
       )
     )
+  ),
+  bslib::nav_panel(
+    title = "Feasibility",
+    icon = shiny::icon("magnifying-glass-chart"),
+    fileInput("file_codelist", "Upload Codelist",
+              accept = c(".csv")),
+    tags$h3("Overall counts"),
+    reactable::reactableOutput("codelist_contents")
   ),
   bslib::nav_spacer(),
   bslib::nav_item(
