@@ -38,21 +38,10 @@ server <- function(input, output, session) {
       output$update_message_summarise_omop_snapshot <- shiny::renderText("")
     }
   })
-  shiny::observeEvent(input$update_summarise_omop_snapshot, {
-    updateButtons$summarise_omop_snapshot <- FALSE
-  })
 
   ## get summarise_omop_snapshot data
-  getSummariseOmopSnapshotData <- shiny::eventReactive(input$update_summarise_omop_snapshot, {
-    data[["summarise_omop_snapshot"]] |>
-      dplyr::filter(
-        .data$cdm_name %in% input$summarise_omop_snapshot_cdm_name,
-        .data$variable_name %in% input$summarise_omop_snapshot_variable_name
-      )
-  })
-  
   getSummariseOmopSnapshotTable <- shiny::reactive({
-    getSummariseOmopSnapshotData() |>
+    data[["summarise_omop_snapshot"]] |>
       OmopSketch::tableOmopSnapshot()
   })
   output$summarise_omop_snapshot_table <- gt::render_gt({
@@ -168,6 +157,48 @@ server <- function(input, output, session) {
     }
   )
   
+  
+  # for feasibility
+  
+  getUploadedCodes <- shiny::reactive({
+    
+    req(input$file_codelist) 
+    
+    codelist_name <- stringr::str_replace_all(input$file_codelist$name, 
+                                              ".csv", "")
+    concepts<- readr::read_csv(input$file_codelist$datapath) |> 
+      dplyr::pull("concept_id") |> 
+      as.integer()
+    codelist <-  list(concepts) 
+    names(codelist) <- codelist_name
+    
+    codelist |> 
+     omopgenerics::newCodelist()
+
+    })
+  
+  
+  output$codelist_contents <- reactable::renderReactable({
+    
+    uploaded_codes <- getUploadedCodes()
+    
+   counts <- data[["summarise_concept_id_counts"]] |> 
+      dplyr::inner_join(
+        dplyr::tibble(variable_level = as.character(uploaded_codes[[1]])
+      )) |> 
+      omopgenerics::tidy() |> 
+      dplyr::filter(time_interval == "overall") |> 
+      dplyr::select(cdm_name, omop_table, 
+                    variable_name, variable_level,
+                    source_concept_name, source_concept_id,
+                    count_records, count_subjects)
+   
+   counts |> 
+     reactable::reactable(
+       defaultSorted = list(count_records = "desc")
+     )
+
+  })
   
   
   
