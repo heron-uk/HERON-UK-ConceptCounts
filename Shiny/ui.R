@@ -57,7 +57,7 @@ ui <- bslib::page_navbar(
           inputId = "summarise_concept_id_counts_cdm_name",
           label = "CDM name",
           choices = choices$summarise_concept_id_counts_cdm_name,
-          selected = selected$summarise_concept_id_counts_cdm_name,
+          selected = selected$summarise_concept_id_counts_cdm_name[1],
           multiple = TRUE,
           options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3")
         ),
@@ -65,7 +65,15 @@ ui <- bslib::page_navbar(
           inputId = "summarise_concept_id_counts_omop_table",
           label = "OMOP CDM table",
           choices = choices$summarise_concept_id_counts_omop_table,
-          selected = selected$summarise_concept_id_counts_omop_table[1],
+          selected = "drug_exposure",
+          multiple = TRUE,
+          options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3")
+        ),
+        shinyWidgets::pickerInput(
+          inputId = "summarise_concept_id_counts_age_group",
+          label = "Age group",
+          choices = choices$summarise_concept_id_counts_age_group,
+          selected = "overall",
           multiple = TRUE,
           options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3")
         ),
