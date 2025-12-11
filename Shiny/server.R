@@ -216,6 +216,7 @@ server <- function(input, output, session) {
    )
    counts <- counts |> 
      reactable::reactable(
+       groupBy = c("cdm_name", "codelist"),
        defaultSorted = list(count_records = "desc")
      )
 
