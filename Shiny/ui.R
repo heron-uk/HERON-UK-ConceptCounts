@@ -178,7 +178,8 @@ ui <- bslib::page_navbar(
     title = "Feasibility",
     icon = shiny::icon("magnifying-glass-chart"),
     fileInput("file_codelist", "Upload Codelist",
-              accept = c(".csv")),
+              accept = c(".csv"), 
+              multiple = TRUE),
     tags$h3("Overall counts"),
     reactable::reactableOutput("codelist_contents")
   ),

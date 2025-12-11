@@ -157,22 +157,26 @@ server <- function(input, output, session) {
     }
   )
   
-  
-  # for feasibility
+  # feasibility -----
   
   getUploadedCodes <- shiny::reactive({
     
     req(input$file_codelist) 
     
-    codelist_name <- stringr::str_replace_all(input$file_codelist$name, 
-                                              ".csv", "")
-    concepts<- readr::read_csv(input$file_codelist$datapath) |> 
-      dplyr::pull("concept_id") |> 
-      as.integer()
-    codelist <-  list(concepts) 
-    names(codelist) <- codelist_name
+    all_codelist <- list()
+    for(i in seq_along(input$file_codelist$name)){
+      working_codelist_name <- stringr::str_replace_all(input$file_codelist$name[i], 
+                                                ".csv", "")
+      working_concepts <- readr::read_csv(input$file_codelist$datapath[i]) |> 
+        dplyr::pull("concept_id") |> 
+        as.integer()
+      working_codelist <-  list(working_concepts) 
+      names(working_codelist) <- working_codelist_name
+      all_codelist[[i]] <- working_codelist |> 
+        omopgenerics::newCodelist()
+    }
     
-    codelist |> 
+    omopgenerics::bind(all_codelist) |> 
      omopgenerics::newCodelist()
 
     })
@@ -180,21 +184,39 @@ server <- function(input, output, session) {
   
   output$codelist_contents <- reactable::renderReactable({
     
-    uploaded_codes <- getUploadedCodes()
+   uploaded_codes <- getUploadedCodes()
     
-   counts <- data[["summarise_concept_id_counts"]] |> 
+   counts <- list()
+   for(i in seq_along(uploaded_codes)){
+   cli::cli_inform("Getting counts for {names(uploaded_codes)[i]}")
+   counts[[i]] <- data[["summarise_concept_id_counts"]] |> 
       dplyr::inner_join(
-        dplyr::tibble(variable_level = as.character(uploaded_codes[[1]])
-      )) |> 
+        dplyr::tibble(variable_level = as.character(uploaded_codes[[i]])
+      ))
+   if(nrow(counts[[i]]) >0){
+     counts[[i]] <- counts[[i]] |> 
       omopgenerics::tidy() |> 
       dplyr::filter(time_interval == "overall") |> 
-      dplyr::select(cdm_name, omop_table, 
+      dplyr::mutate(codelist = names(uploaded_codes)[i]) |> 
+      dplyr::select(codelist, cdm_name, omop_table, 
                     variable_name, variable_level,
                     source_concept_name, source_concept_id,
                     count_records, count_subjects)
-   
-   counts |> 
+   } else {
+     counts[[i]] <- dplyr::tibble()
+   }
+   }
+
+   counts <- dplyr::bind_rows(counts)
+   validate(
+     need(
+       nrow(counts) > 0, 
+       "No counts found for provided codelists"
+     )
+   )
+   counts <- counts |> 
      reactable::reactable(
+       groupBy = c("cdm_name", "codelist"),
        defaultSorted = list(count_records = "desc")
      )
 
