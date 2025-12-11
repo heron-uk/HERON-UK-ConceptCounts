@@ -181,7 +181,8 @@ ui <- bslib::page_navbar(
               accept = c(".csv"), 
               multiple = TRUE),
     tags$h3("Overall counts"),
-    reactable::reactableOutput("codelist_contents")
+    reactable::reactableOutput("codelist_contents") |> 
+      shinycssloaders::withSpinner()
   ),
   bslib::nav_spacer(),
   bslib::nav_item(

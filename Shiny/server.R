@@ -192,7 +192,8 @@ server <- function(input, output, session) {
    counts[[i]] <- data[["summarise_concept_id_counts"]] |> 
       dplyr::inner_join(
         dplyr::tibble(variable_level = as.character(uploaded_codes[[i]])
-      ))
+      ),
+      by = "variable_level")
    if(nrow(counts[[i]]) >0){
      counts[[i]] <- counts[[i]] |> 
       omopgenerics::tidy() |> 
