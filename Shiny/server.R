@@ -221,7 +221,7 @@ server <- function(input, output, session) {
        defaultSorted = list(count_records = "desc")
      )
 
-  })
+  }) 
   
   
   
