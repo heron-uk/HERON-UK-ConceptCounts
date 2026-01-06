@@ -70,14 +70,6 @@ ui <- bslib::page_navbar(
           options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3")
         ),
         shinyWidgets::pickerInput(
-          inputId = "summarise_concept_id_counts_age_group",
-          label = "Age group",
-          choices = choices$summarise_concept_id_counts_age_group,
-          selected = "overall",
-          multiple = TRUE,
-          options = list(`actions-box` = TRUE, size = 10, `selected-text-format` = "count > 3")
-        ),
-        shinyWidgets::pickerInput(
           inputId = "summarise_concept_id_counts_time_interval",
           label = "Time interval",
           choices = choices$summarise_concept_id_counts_time_interval,
