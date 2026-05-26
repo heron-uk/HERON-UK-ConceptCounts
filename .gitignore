@@ -5,4 +5,6 @@
 **/data/*.csv
 **/data/*.RData
 .DS_Store
-Shiny/rsconnect/shinyapps.io/dpa-pde-oxford/HERON-UK-Concept-Counts.dcf
+rsconnect/
+shiny/data/*.csv
+shiny/results
