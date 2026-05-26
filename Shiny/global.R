@@ -20,17 +20,25 @@ library(tidyr)
 library(visOmopResults)
 library(yaml)
 
+
 # preprocess data if it has not been done
 fileData <- file.path(getwd(), "data", "shinyData.RData")
-if (!file.exists(fileData)) {
-  source(file.path(getwd(), "data", "preprocess.R"))
-}
+# if (!file.exists(fileData)) {
+#   source(file.path(getwd(), "data", "preprocess.R"))
+# }
 
 # uncomment to load the raw data
 # rawData <- omopgenerics::importSummarisedResult(file.path(getwd(), "data"))
 
 # load shiny data
 load(fileData)
+#load(here::here("data", "results.RData"))
+#saveRDS(data, here::here("data", "results.rds"), compress = "xz")
+filerds <- file.path(getwd(), "data", "results.rds")
+
+
+options(shiny.timeout = 300) 
+options(shiny.maxRequestSize = 100 * 1024^2)  # 100MB
 
 # source functions
 source(file.path(getwd(), "functions.R"))

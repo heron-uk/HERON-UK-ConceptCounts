@@ -179,10 +179,10 @@ ui <- bslib::page_navbar(
   bslib::nav_spacer(),
   bslib::nav_item(
     bslib::popover(
-      shiny::icon("download"),
+      shiny::actionLink("pop_trigger", label = NULL, icon = shiny::icon("download")),
       shiny::downloadButton(
         outputId = "download_raw",
-        label = "Download raw data",
+        label = "Download data (.rds)",
         icon = shiny::icon("download")
       )
     )

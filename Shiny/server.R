@@ -4,13 +4,12 @@
 server <- function(input, output, session) {
   # download raw data -----
   output$download_raw <- shiny::downloadHandler(
-    filename = "results.csv",
+    filename = function() "results.rds",
     content = function(file) {
-      data |>
-        omopgenerics::bind() |>
-        omopgenerics::exportSummarisedResult(fileName = file)
+      file.copy(filerds, file)
     }
   )
+  
   # update buttons ----
   updateButtons <- shiny::reactiveValues(
     summarise_omop_snapshot = FALSE,
