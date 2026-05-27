@@ -389,3 +389,88 @@ renderInteractivePlot <- function(plt, interactive) {
     shiny::renderPlot(plt)
   }
 }
+orphanConcepts <- function(codelists) {
+  vocab <- readRDS("data/vocabulary.rds")
+  
+  orphanCodes <- purrr::imap(codelists, \(x, nm) {
+    cli::cli_inform("Getting orphan codes for {nm}")
+    
+    x <- dplyr::tibble(concept_id = as.integer(unique(x)))
+    
+    # get descendants used in db
+    orphanDescendants <- x |>
+      dplyr::inner_join(
+        vocab$concept_ancestor,
+        by = c("concept_id" = "ancestor_concept_id")
+      ) |>
+      dplyr::select("concept_id" = "descendant_concept_id") |>
+      dplyr::filter(!is.na(.data$concept_id)) |>
+      dplyr::distinct() |>
+      dplyr::mutate("relationship" = "Descendant") |>
+      dplyr::collect()
+    
+    # get direct ancestors used in db
+    orphanAncestors <- x |>
+      dplyr::left_join(
+        vocab$concept_ancestor,
+        by = c("concept_id" = "descendant_concept_id")
+      ) |>
+      dplyr::filter(.data$min_levels_of_separation == 1) |>
+      dplyr::select("concept_id" = "ancestor_concept_id")  |>
+      dplyr::filter(!is.na(.data$concept_id)) |>
+      dplyr::distinct() |>
+      dplyr::mutate("relationship" = "Ancestor") |>
+      dplyr::collect()
+    
+    # get relationship 1
+    orphanRelationship1 <- x |>
+      dplyr::left_join(
+        vocab$concept_relationship,
+        by = c("concept_id" = "concept_id_2")
+      ) |>
+      dplyr::select(
+        "concept_id" = "concept_id_1",
+        "relationship" = "relationship_id"
+      )  |>
+      dplyr::filter(!is.na(.data$concept_id)) |>
+      dplyr::distinct() |>
+      dplyr::collect()
+    
+    # get relationship 2
+    orphanRelationship2 <- x |>
+      dplyr::left_join(
+        vocab$concept_relationship,
+        by = c("concept_id" = "concept_id_1")
+      ) |>
+      dplyr::select(
+        "concept_id" = "concept_id_2",
+        "relationship" = "relationship_id"
+      )  |>
+      dplyr::filter(!is.na(.data$concept_id)) |>
+      dplyr::distinct() |>
+      dplyr::collect()
+    
+    orphanDescendants |>
+      dplyr::bind_rows(orphanAncestors) |>
+      dplyr::bind_rows(orphanRelationship1) |>
+      dplyr::bind_rows(orphanRelationship2) |>
+      # make sure we don't have any of the original codes
+      dplyr::anti_join(x, by = "concept_id") |>
+      # Merge rows of same concept_id but multiple relationships
+      dplyr::group_by(.data$concept_id) |>
+      dplyr::summarise("relationship" = paste(.data$relationship, collapse = ", "), .groups = "drop")
+  }) |>
+    dplyr::bind_rows(.id = "codelist_name")
+
+  rm(vocab)
+  
+  getCounts(orphanCodes)
+}
+getCounts <- function(codes) {
+  cols <- c("codelist_name", "concept_id", "relationship") |>
+    purrr::keep(\(x) x %in% colnames(codes))
+  data$summarise_concept_overall_counts |> 
+    inner_join(codes, by = "concept_id", relationship = "many-to-many") |>
+    dplyr::relocate(dplyr::all_of(cols)) |>
+    dplyr::arrange(dplyr::across(dplyr::all_of(cols)))
+}

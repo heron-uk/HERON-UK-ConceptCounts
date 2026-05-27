@@ -165,7 +165,7 @@ server <- function(input, output, session) {
     all_codelist <- list()
     for(i in seq_along(input$file_codelist$name)){
       working_codelist_name <- stringr::str_replace_all(input$file_codelist$name[i], 
-                                                ".csv", "")
+                                                        ".csv", "")
       working_concepts <- readr::read_csv(input$file_codelist$datapath[i]) |> 
         dplyr::pull("concept_id") |> 
         as.integer()
@@ -176,52 +176,31 @@ server <- function(input, output, session) {
     }
     
     omopgenerics::bind(all_codelist) |> 
-     omopgenerics::newCodelist()
-
-    })
-  
+      omopgenerics::newCodelist()
+    
+  })
   
   output$codelist_contents <- reactable::renderReactable({
-    
-   uploaded_codes <- getUploadedCodes()
-    
-   counts <- list()
-   for(i in seq_along(uploaded_codes)){
-   cli::cli_inform("Getting counts for {names(uploaded_codes)[i]}")
-   counts[[i]] <- data[["summarise_concept_id_counts"]] |> 
-      dplyr::inner_join(
-        dplyr::tibble(variable_level = as.character(uploaded_codes[[i]])
-      ),
-      by = "variable_level")
-   if(nrow(counts[[i]]) >0){
-     counts[[i]] <- counts[[i]] |> 
-      omopgenerics::tidy() |> 
-      dplyr::filter(time_interval == "overall") |> 
-      dplyr::mutate(codelist = names(uploaded_codes)[i]) |> 
-      dplyr::select(codelist, cdm_name, omop_table, 
-                    variable_name, variable_level,
-                    source_concept_name, source_concept_id,
-                    count_records, count_subjects)
-   } else {
-     counts[[i]] <- dplyr::tibble()
-   }
-   }
+   counts <- getUploadedCodes() |>
+     dplyr::as_tibble() |>
+     getCounts()
 
-   counts <- dplyr::bind_rows(counts)
-   validate(
-     need(
-       nrow(counts) > 0, 
-       "No counts found for provided codelists"
-     )
-   )
+   validate(need(nrow(counts) > 0, "No counts found for provided codelists"))
    counts <- counts |> 
      reactable::reactable(
-       groupBy = c("cdm_name", "codelist"),
+       groupBy = c("codelist_name", "cdm_name"),
        defaultSorted = list(count_records = "desc")
      )
-
   }) 
   
-  
+  output$orphan_counts <- reactable::renderReactable({
+    counts <- orphanConcepts(getUploadedCodes())
+    validate(need(nrow(counts) > 0, "No counts found for provided codelists"))
+    counts <- counts |> 
+      reactable::reactable(
+        groupBy = c("codelist_name", "cdm_name"),
+        defaultSorted = list(count_records = "desc")
+      )
+  }) 
   
 }
