@@ -20,7 +20,6 @@ library(tidyr)
 library(visOmopResults)
 library(yaml)
 
-
 # preprocess data if it has not been done
 fileData <- file.path(getwd(), "data", "shinyData.RData")
 # if (!file.exists(fileData)) {
@@ -36,6 +35,7 @@ load(fileData)
 #saveRDS(data, here::here("data", "results.rds"), compress = "xz")
 filerds <- file.path(getwd(), "data", "results.rds")
 
+vocabVersion <- readRDS(file = file.path(getwd(), "data", "vocab_version.rds"))
 
 options(shiny.timeout = 300) 
 options(shiny.maxRequestSize = 100 * 1024^2)  # 100MB

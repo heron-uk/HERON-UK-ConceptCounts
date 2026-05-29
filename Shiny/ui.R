@@ -169,12 +169,52 @@ ui <- bslib::page_navbar(
   bslib::nav_panel(
     title = "Feasibility",
     icon = shiny::icon("magnifying-glass-chart"),
-    fileInput("file_codelist", "Upload Codelist",
-              accept = c(".csv"), 
-              multiple = TRUE),
-    tags$h3("Overall counts"),
-    reactable::reactableOutput("codelist_contents") |> 
-      shinycssloaders::withSpinner()
+    shiny::fileInput(
+      inputId = "file_codelist", 
+      label = "Upload Codelist", 
+      accept = c(".csv"),
+      multiple = TRUE
+    ),
+    bslib::navset_card_tab(
+      bslib::nav_panel(
+        title = "Overall counts",
+        bslib::card(
+          full_screen = TRUE,
+          bslib::card_header(
+            bslib::popover(
+              shiny::icon("download"),
+              shiny::downloadButton(
+                outputId = "codelist_contents_download", 
+                label = "Download counts")
+            ),
+            class = "text-end"
+          ),
+          reactable::reactableOutput("codelist_contents") |> 
+            shinycssloaders::withSpinner()
+        )
+      ),
+      bslib::nav_panel(
+        title = "Orphan concepts",
+        bslib::card(
+          full_screen = TRUE,
+          bslib::card_header(
+            bslib::popover(
+              shiny::icon("download"),
+              shiny::downloadButton(
+                outputId = "orphan_counts_download", 
+                label = "Download orphan counts")
+            ),
+            class = "text-end"
+          ),
+          shiny::tags$span(
+            "Orphan concepts obtained with vocabulary version: ",
+            shiny::tags$strong(vocabVersion)
+          ),
+          reactable::reactableOutput("orphan_counts") |> 
+            shinycssloaders::withSpinner()
+        )
+      )
+    )
   ),
   bslib::nav_spacer(),
   bslib::nav_item(

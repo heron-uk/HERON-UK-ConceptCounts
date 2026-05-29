@@ -14,6 +14,12 @@ values <- getValues(result, resultList)
 choices <- values
 selected <- getSelected(values)
 
+data$summarise_concept_overall_counts <- omopgenerics::tidy(data$summarise_concept_id_counts) |>
+  dplyr::filter(time_interval == "overall") |>
+  dplyr::select(!"time_interval") |>
+  rename(concept_id = variable_level, concept_name = variable_name) |>
+  mutate(concept_id  = as.integer(concept_id))
+
 save(data, choices, selected, values, file = file.path(getwd(), "data", "shinyData.RData"))
 
 rm(result, values, choices, selected, resultList, data)
