@@ -31,7 +31,7 @@ fileData <- file.path(getwd(), "data", "shinyData.RData")
 
 # load shiny data
 load(fileData)
-#load(here::here("data", "results.RData"))
+
 #saveRDS(data, here::here("data", "results.rds"), compress = "xz")
 filerds <- file.path(getwd(), "data", "results.rds")
 

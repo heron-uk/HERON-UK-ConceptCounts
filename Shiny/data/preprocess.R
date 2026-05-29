@@ -6,7 +6,7 @@ resultList <- list(
 
 source(file.path(getwd(), "functions.R"))
 
-result <- omopgenerics::importSummarisedResult(file.path(getwd(), "data"))
+result <- omopgenerics::importSummarisedResult(file.path(getwd(), "results"))
 data <- prepareResult(result, resultList)
 values <- getValues(result, resultList)
 

@@ -192,7 +192,15 @@ server <- function(input, output, session) {
        defaultSorted = list(count_records = "desc")
      )
   }) 
-  
+  output$codelist_contents_download <- shiny::downloadHandler(
+    filename = "codelist_counts.csv",
+    content = function(file) {
+      data <- getUploadedCodes() |>
+        dplyr::as_tibble() |>
+        getCounts()
+      utils::write.csv(data, file, row.names = FALSE)
+    }
+  )
   output$orphan_counts <- reactable::renderReactable({
     counts <- orphanConcepts(getUploadedCodes())
     validate(need(nrow(counts) > 0, "No counts found for provided codelists"))
@@ -202,5 +210,11 @@ server <- function(input, output, session) {
         defaultSorted = list(count_records = "desc")
       )
   }) 
-  
+  output$orphan_counts_download <- shiny::downloadHandler(
+    filename = "orphan_counts.csv",
+    content = function(file) {
+      data <- orphanConcepts(getUploadedCodes())
+      utils::write.csv(data, file, row.names = FALSE)
+    }
+  )
 }
